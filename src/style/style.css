@@ -1,0 +1,243 @@
+*{
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+
+    font-family: 'IBM Plex Mono', monospace;
+    color: white;
+}
+
+#content{
+    height: 100vh;
+    width: 100vw;
+
+    display: flex;
+    flex-direction: column;
+
+    background-color: purple;
+}
+
+#todos{
+    
+    margin: 1rem;
+    /* flex */
+    flex: auto;
+
+    /* grid */
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(3,1fr);
+    column-gap: 1rem;
+    row-gap: 1rem;
+
+    /* styling */
+    background-color: blue;
+    padding: 1rem;
+}
+
+#todo-menu{
+    height: 20%;
+    background-color: red;
+}
+
+#footer{
+    height:5%;
+    background-color: green;
+}
+
+/* Card Styling */
+
+.todo-card{
+    display: flex;
+    flex-direction: column;
+    box-sizing: border-box;
+
+    width: 100%;
+    height: 100%;
+    border: 5px solid green;
+    border-radius: 5px;
+    background-color: black;
+}
+
+.todo-header{
+    display: flex;
+    align-items: center;
+
+    min-height: 1.5rem;
+    border-bottom: 2px solid green;
+    padding-left: 2px;
+
+}
+
+.todo-close{
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+}
+
+.todo-date{
+    min-height: 1.5rem;
+    border-bottom: 2px solid green;
+    padding-left: 2px;
+}
+
+.todo-description{
+    flex: auto;
+    min-height: 1.5rem;
+    border-bottom: 2px solid green;
+    padding-left: 2px;
+    text-overflow: ellipsis;
+}
+.todo-more{
+    min-height: 1rem;
+    margin-bottom: 5px;
+    text-align: center;
+}
+
+/* Popup Styling */
+
+#todo-popup{
+    --box-height:500px;
+    --box-width:500px;
+
+    position: absolute;
+    height: var(--box-height);
+    width: var(--box-width);
+    border: 5px solid green;
+    background-color: black;
+
+    top: calc(50% - (var(--box-height)/2));
+    left: calc(50% - (var(--box-width)/2));
+
+    display: flex;
+    flex-direction: column;
+}
+
+#popup-header, #popup-title, #popup-body, #popup-date, #popup-description{
+
+    display: flex;
+    align-items: center;
+    border-bottom: 2px solid green;
+    padding: .5rem;
+
+}
+
+#popup-close{
+
+    width: 1rem;
+    height: 1rem;
+    margin-left: auto;
+
+}
+
+/* other-todos */
+
+#other-todos{
+    grid-column: 5/5;
+    grid-row: 3/3;
+    
+    box-sizing: border-box;
+    height: 100%;
+    width: 100%;
+
+    background-color: black;
+    border: 5px solid green;
+    border-radius: 5px;
+    text-align: center;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-size: 50px;
+}
+
+/* Menu Items */
+
+#todo-menu{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    user-select: none;
+}
+
+.menu-button:hover{
+    transform: scale(1.2);
+    color: green;
+    cursor:pointer;
+}
+
+.menu-button:active{
+    transform: scale(1.5);
+    color: green;
+    cursor:pointer;
+}
+
+/* Create new todo popup */
+
+#add-new-todo{
+    --box-height:500px;
+    --box-width:500px;
+
+    position: absolute;
+    height: var(--box-height);
+    width: var(--box-width);
+    border: 5px solid green;
+    background-color: black;
+
+    top: calc(50% - (var(--box-height)/2));
+    left: calc(50% - (var(--box-width)/2));
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 1rem;
+}
+
+label{
+    margin-right: 1rem;
+}
+
+.input-container{
+    margin-bottom: 1rem;
+    display: flex;
+    justify-content:space-between;
+    width: 400px;
+}
+
+#add-new-todo > div > input{
+    background-color: black;
+    border: 2px solid green;
+    color: white;    
+    width: 250px;
+}
+
+input::-webkit-calendar-picker-indicator{
+    filter: invert(100%);
+}
+
+input:focus{
+    outline: none;
+}
+
+textarea{
+    background-color: black;
+    border: 2px solid green;
+    width: 250px;
+}
+
+textarea:focus{
+    outline: none;
+}
+
+.submit-button{
+    width: 100px;
+    height: 50px;
+    background-color: green;
+    color: white;
+
+    margin-top: auto;
+}
+
+
+
