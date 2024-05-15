@@ -1,8 +1,11 @@
-import { createTodoFragment } from "./fragments";
-import { clearTodos, displayTodo } from "./displayController";
+import { createTodoFragment } from "./fragments/toDoCard";
+import { displayTodo, clearToDos } from "./displayController";
+import { v4 as uuidv4 } from "uuid";
+
 // todo class
 class Todo {
   constructor(title, date, description) {
+    this.id = uuidv4();
     this.title = title;
     this.date = date;
     this.description = description;
@@ -30,19 +33,29 @@ const createToDo = (title, date, description) => {
 };
 
 const storeToDo = (todo) => {
-  todos.push(todo);
-  console.log(todo);
+  localStorage.setItem(todo.id, JSON.stringify(todo));
+  console.log(JSON.stringify(todo));
+};
+
+const deleteToDo = (todo) => {
+  localStorage.removeItem(todo.id);
+  populateTodos();
+};
+
+const deleteAllToDo = () => {
+  localStorage.clear();
 };
 
 const populateTodos = () => {
-  for (const x of todos) {
-    let fragment = createTodoFragment(x.title, x.date, x.description);
+  clearToDos();
+
+  for (let x = 0; x < localStorage.length; x++) {
+    let todo = JSON.parse(localStorage.getItem(localStorage.key(x)));
+    let fragment = createTodoFragment(todo.title, todo.date, todo.description);
     displayTodo(fragment);
   }
 };
 
 //
 
-const todos = [];
-
-export { createToDo, populateTodos };
+export { createToDo, populateTodos, deleteToDo, deleteAllToDo };

@@ -1,8 +1,4 @@
-import {
-  todoCardFragment,
-  todoPopupFragment,
-  createAddNewTodoFragment,
-} from "./fragments.js";
+import { createAddNewTodoFragment } from "./fragments/addNewToDo.js";
 
 const todoArea = document.getElementById("todos");
 const popupArea = document.getElementById("popups");
